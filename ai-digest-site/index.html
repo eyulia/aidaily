@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Daily Digest</title>
+  <meta name="description" content="One person's structured daily exploration of artificial intelligence — concepts, news, and business applications explained clearly, session by session." />
+  <meta property="og:title" content="AI Daily Digest" />
+  <meta property="og:description" content="28 sessions. 54 concepts. One continuous thread through AI." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#home" data-nav="home">AI Daily <span>Digest</span></a>
+      <ul class="nav-links">
+        <li><a href="#home" data-nav="home" class="active">Home</a></li>
+        <li><a href="#digests" data-nav="digests">Digests</a></li>
+        <li><a href="#glossary" data-nav="glossary">Glossary</a></li>
+        <li><a href="#progress" data-nav="progress">Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── HOME PAGE ── -->
+  <div id="page-home" class="page active">
+    <div class="container">
+      <div class="hero">
+        <div class="eyebrow">A public learning journal</div>
+        <h1 class="hero-title">28 days of learning<br><em>AI from scratch</em></h1>
+        <p class="hero-body">One person's structured daily exploration of artificial intelligence — concepts, news, and business applications explained clearly, built up session by session. Starting from zero.</p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-cell">
+          <span class="stat-num" id="stat-sessions">—</span>
+          <span class="stat-label">Sessions</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num" id="stat-concepts">—</span>
+          <span class="stat-label">Concepts</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num" id="stat-usecases">—</span>
+          <span class="stat-label">Use cases</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title">Recent digests</h2>
+        <a class="see-all" href="#digests" data-nav="digests">See all →</a>
+      </div>
+
+      <div class="digest-grid" id="recent-digests"></div>
+    </div>
+  </div>
+
+  <!-- ── DIGESTS PAGE ── -->
+  <div id="page-digests" class="page">
+    <div class="container">
+      <div class="page-header">
+        <div class="eyebrow">All sessions</div>
+        <h1 class="page-header-title">The full archive</h1>
+        <p class="page-header-sub">Every digest, searchable. Click any session to read it in full.</p>
+      </div>
+
+      <div class="search-row">
+        <input
+          class="search-input"
+          type="text"
+          id="digests-search"
+          placeholder="Search concepts, topics, use cases, day number…"
+          autocomplete="off"
+        />
+        <select class="filter-select" id="digests-topic">
+          <option value="">All topics</option>
+        </select>
+      </div>
+
+      <div class="digest-grid" id="digest-list"></div>
+    </div>
+  </div>
+
+  <!-- ── DIGEST DETAIL PAGE ── -->
+  <div id="page-digest-detail" class="page">
+    <div class="container">
+      <div class="digest-detail" id="digest-detail-content"></div>
+    </div>
+  </div>
+
+  <!-- ── GLOSSARY PAGE ── -->
+  <div id="page-glossary" class="page">
+    <div class="container">
+      <div class="page-header">
+        <div class="eyebrow">Every concept, defined</div>
+        <h1 class="page-header-title">Glossary</h1>
+        <p class="page-header-sub">All AI terms covered across sessions — from fundamentals to frontier research. Click a day number to jump to that digest.</p>
+      </div>
+
+      <div class="alpha-nav" id="alpha-nav"></div>
+      <div id="glossary-content"></div>
+    </div>
+  </div>
+
+  <!-- ── PROGRESS PAGE ── -->
+  <div id="page-progress" class="page">
+    <div class="container">
+      <div class="page-header">
+        <div class="eyebrow">The journey so far</div>
+        <h1 class="page-header-title">Progress tracker</h1>
+      </div>
+
+      <div class="progress-hero">
+        <div class="progress-big" id="progress-sessions">—</div>
+        <div class="progress-info">
+          <h2>Sessions completed</h2>
+          <p>Started March 22, 2026. At this pace, 50 sessions by mid-May.</p>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-grid">
+        <div class="progress-card">
+          <div class="progress-card-title">Concepts by category</div>
+          <div id="category-breakdown"></div>
+        </div>
+        <div class="progress-card">
+          <div class="progress-card-title">Session streak</div>
+          <p style="font-size:13px; color:var(--muted); margin-bottom:0.75rem;">Each square = one session completed</p>
+          <div class="streak-grid" id="streak-dots"></div>
+        </div>
+      </div>
+
+      <div class="timeline-card">
+        <div class="timeline-card-title">Key milestones</div>
+        <div class="timeline-item">
+          <div class="timeline-dot-col"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+          <div class="timeline-body">
+            <div class="timeline-day">Day 1 · Mar 22, 2026</div>
+            <div class="timeline-text">Started the journey — AI vs ML and the foundational framing.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot-col"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+          <div class="timeline-body">
+            <div class="timeline-day">Day 10 · Apr 5, 2026</div>
+            <div class="timeline-text">Reached double digits. Covered multimodal AI, tokens, fine-tuning, and digital twins.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot-col"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+          <div class="timeline-body">
+            <div class="timeline-day">Day 18 · Apr 13, 2026</div>
+            <div class="timeline-text">Completed the first summary file — 34 concepts documented and locked in.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+          <div class="timeline-body">
+            <div class="timeline-day">Day 28 · Apr 23, 2026</div>
+            <div class="timeline-text">Today — KV cache and world models. 54 total concepts covered.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">AI Daily <span>Digest</span></div>
+      <div class="footer-note">A personal AI learning journal · Started March 2026</div>
+    </div>
+  </footer>
+
+  <script src="data/content.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
